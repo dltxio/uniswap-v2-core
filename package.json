@@ -44,5 +44,9 @@
     "test": "mocha",
     "prepublishOnly": "yarn test"
   },
-  "license": "GPL-3.0-or-later"
+  "license": "GPL-3.0-or-later",
+  "dependencies": {
+    "@truffle/hdwallet-provider": "^1.1.1",
+    "dotenv": "^8.2.0"
+  }
 }
