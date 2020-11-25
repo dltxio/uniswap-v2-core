@@ -2,6 +2,7 @@ require("dotenv").config();
 const HDWalletProvider = require("@truffle/hdwallet-provider");
 
 module.exports = {
+  plugins: ["truffle-security", "solidity-coverage"],
   networks: {
     development: {
       host: "localhost",
@@ -35,6 +36,7 @@ module.exports = {
         })
       },
       network_id: "1",
+      //gas: 10000000,
       gas: 4600000,
       gasPrice: 20000000000,
       confirmations: 2,
