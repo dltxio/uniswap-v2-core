@@ -13,9 +13,9 @@ module.exports = {
       provider: () => {
         return new HDWalletProvider({
           mnemonic: {
-            phrase: process.env.ROPSTEN_MNEMONIC
+            phrase: process.env.MNEMONIC
           },
-          providerOrUrl: process.env.ROPSTEN_URL
+          providerOrUrl: process.env.INFURA_URL
         })
       },
       network_id: "3",
@@ -28,9 +28,10 @@ module.exports = {
       provider: () => {
         return new HDWalletProvider({
           mnemonic: {
-            phrase:  process.env.MAIN_MNEMONIC,
+            phrase:  process.env.MNEMONIC,
           },
-          providerOrUrl: process.env.MAIN_URL
+          providerOrUrl: process.env.INFURA_URL,
+          addressIndex: 1
         })
       },
       network_id: "1",
