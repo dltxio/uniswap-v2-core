@@ -12,8 +12,9 @@ contract HandleFactory is IUniswapV2Factory {
 
     event PairCreated(address indexed token0, address indexed token1, address pair, uint);
 
-    constructor() public {
-        feeToSetter = 0xa1138fccd5f8E126E8d779CF78a547517307559d;
+    constructor(address _feeToSetter) public {
+        //feeToSetter = 0xa1138fccd5f8E126E8d779CF78a547517307559d;
+        feeToSetter = _feeToSetter;
     }
 
     function allPairsLength() external view returns (uint) {

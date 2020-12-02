@@ -5,5 +5,5 @@ const HandleFactory = artifacts.require("HandleFactory");
 module.exports = async (deployer) => {
   await deployer.deploy(UniswapV2ERC20);
   await deployer.deploy(UniswapV2Pair);
-  await deployer.deploy(HandleFactory);
+  await deployer.deploy(HandleFactory("0xa1138fccd5f8E126E8d779CF78a547517307559d"));
 };
