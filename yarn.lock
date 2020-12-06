@@ -463,6 +463,16 @@
   dependencies:
     web3 "*"
 
+"@uniswap/lib@^4.0.0-alpha":
+  version "4.0.0-alpha"
+  resolved "https://registry.yarnpkg.com/@uniswap/lib/-/lib-4.0.0-alpha.tgz#1df2872992e7317adb1afc12b3e9e9475f18caa5"
+  integrity sha512-oE6LZChPkbX4fd24sptkoGuEiSiDMhgfS1CgTK2krIr2E0coaNTfEXs0KcdaRSQcLfeOMjcKce5AJSa8FPMXEw==
+
+"@uniswap/v2-core@^1.0.1":
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/@uniswap/v2-core/-/v2-core-1.0.1.tgz#af8f508bf183204779938969e2e54043e147d425"
+  integrity sha512-MtybtkUPSyysqLY2U210NBDeCHX+ltHt3oADGdjqoThZaFRDKwM6k1Nb3F0A3hk5hwuQvytFWhrWHOEq6nVJ8Q==
+
 "@yarnpkg/lockfile@^1.1.0":
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/@yarnpkg/lockfile/-/lockfile-1.1.0.tgz#e77a97fbd345b76d83245edcd17d393b1b41fb31"
