@@ -40,8 +40,10 @@ const allPairsLength = async () => {
 
 const getPair = async () => {
   const result = await contract.methods.getPair(tokenA, tokenB).call()
-  console.log('Pairs')
+  const inverseResult = await contract.methods.getPair(tokenB, tokenA).call()
+  console.log('Pairs (should be identical)')
   console.log(result)
+  console.log(inverseResult)
 }
 
 
