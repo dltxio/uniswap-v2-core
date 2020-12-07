@@ -16,7 +16,8 @@ const to = '0x87227F5771eF47845118ecdb276D75f911aAaBD7'
 // You can get the contract pair from "console_create_pair.js" and "console_get_pair_data.js"
 //const contract_address = '0x1C583d76C45165C25c5aeea7a51415012122adB5'
 //const contract_address = '0x2Ec22d2A7a7399f60A553a71BB0A22BA8B61f48D' //MONDAY 7/12 NO WETH
-const contract_address = '0x4C297C43fF3A4466e5a493db55952B4Af5572010' //MONDAY 7/12 REMOVE CREATE_2
+//const contract_address = '0x4C297C43fF3A4466e5a493db55952B4Af5572010' //MONDAY 7/12 REMOVE CREATE_2
+const contract_address = '0x7bC4c3f23a0d735732d0b1545683cC0769Eb8771' //MONDAY 7/12 CHANGE CREATE_2
 
 
 const meta_mask_mac_account_1 = '0x9943d42D7a59a0abaE451130CcfC77d758da9cA0'
@@ -25,7 +26,7 @@ const meta_mask_mac_account_2 = '0x87227F5771eF47845118ecdb276D75f911aAaBD7'
 //Should have AUD and YEN
 const meta_mask_linux_account_2 = '0xC29082511fEBc2185986d341ee8be3c9B2c66b66' //Firefox
 
-const TWENTY_THIRTY = 1893456000
+const TWENTY_THIRTY = 18934560000000
 
 let rawdata = fs.readFileSync('./build/HandleRouter.json')
 const HandleRouter = JSON.parse(rawdata)
@@ -36,7 +37,7 @@ const web3 = new Web3(
 )
 
 const contract = new web3.eth.Contract(HandleRouter.abi, contract_address)
-const AUD_JPY_PAIR = '0x1C583d76C45165C25c5aeea7a51415012122adB5'
+//const AUD_JPY_PAIR = '0x1C583d76C45165C25c5aeea7a51415012122adB5'
 
 const getFactory = async () => {
   const result = await contract.methods.factory().call()
@@ -48,14 +49,17 @@ const getWETH = async () => {
   console.log(result)
 }
 
+const createPair = async () => {
+  const result = await contract.methods.createPair(tokenA, tokenB).call()
+  console.log(result)
+}
+
 const _data = contract.methods
-  .addLiquidity(tokenA, tokenB, 5, 5, 1, 1, AUD_JPY_PAIR, TWENTY_THIRTY)
+  .addLiquidity(tokenA, tokenB, 5, 5, 1, 1, to, TWENTY_THIRTY)
   .encodeABI()
 
 
 const tx = {
-  // nonce: 43,
-  // gasPrice: "4000000000",
   gas: 5000000,
   to: contract_address,
   value: '0x00',
@@ -78,6 +82,6 @@ web3.eth.accounts
     web3.eth.sendSignedTransaction(signed.rawTransaction).on('receipt', console.log)
 })
 
-getFactory()
-console.log('should be 0xEA4EEA1fF38b08794564F97349C66531f02d333C')
+//createPair()
+//console.log('should be 0xEA4EEA1fF38b08794564F97349C66531f02d333C')
 // getWETH()
