@@ -37,8 +37,8 @@ const meta_mask_mac_account_2 = '0x87227F5771eF47845118ecdb276D75f911aAaBD7'
 
 const meta_mask_linux_account_2 = '0xC29082511fEBc2185986d341ee8be3c9B2c66b66' //Firefox
 
-let rawdata = fs.readFileSync('./build/HandleFactory.json')
-let HandelFactory = JSON.parse(rawdata)
+const rawdata = fs.readFileSync('./build/HandleFactory.json')
+const HandelFactory = JSON.parse(rawdata)
 
 const _data = contract.methods
   .createPair(tokenA, tokenB)
