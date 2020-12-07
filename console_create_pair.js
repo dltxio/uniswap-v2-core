@@ -17,28 +17,26 @@
 //     emit PairCreated(token0, token1, pair, allPairs.length);
 // }
 
+require("dotenv").config();
 const Web3 = require('web3')
 const fs = require('fs')
 
-const Eth = require('ethjs')
-const Abi = require('ethjs-abi')
-
-// const Sign = require("ethjs-signer").sign;
-// const HdKey = require("ethereumjs-wallet/hdkey");
-
-const tokenA = '0xbe0384bcCDCA2172585D0760d386D4e9DdeAB5C2' //AUD
-const tokenB = '0x535A548A5b736791c3ff7177AC33948e43518EA9' //YEN
+const tokenA = process.env.TokenA 
+const tokenB = process.env.TokenB 
 const to = '0x87227F5771eF47845118ecdb276D75f911aAaBD7'
 
-const contract_address = '0xEA4EEA1fF38b08794564F97349C66531f02d333C'
-
-const meta_mask_mac_account_1 = '0x9943d42D7a59a0abaE451130CcfC77d758da9cA0'
-const meta_mask_mac_account_2 = '0x87227F5771eF47845118ecdb276D75f911aAaBD7'
+const factory_address = process.env.FACTORY_ADDRESS 
 
 const meta_mask_linux_account_2 = '0xC29082511fEBc2185986d341ee8be3c9B2c66b66' //Firefox
 
-const rawdata = fs.readFileSync('./build/HandleFactory.json')
+const rawdata = fs.readFileSync('./build/contracts/HandleFactory.json')
 const HandelFactory = JSON.parse(rawdata)
+
+const web3 = new Web3(
+  new Web3.providers.HttpProvider('http://localhost:8545')
+)
+
+const contract = new web3.eth.Contract(HandelFactory.abi, factory_address)
 
 const _data = contract.methods
   .createPair(tokenA, tokenB)
@@ -46,21 +44,15 @@ const _data = contract.methods
 
 
 const tx = {
-  // nonce: 43,
-  // gasPrice: "4000000000",
   gas: 5000000,
-  to: contract_address,
+  to: factory_address,
   value: '0x00',
   data: _data,
   chainId: 3
 }
 
-
-web3.eth.getTransactionCount(meta_mask_linux_account_2, 'pending').then(nonce => {
-  console.log(nonce)
-})
-
-const PRIVATE_KEY = '0x2cccc34c1f3028d05b2a617d05ce60711258a0dd344a12f33dab6cc87aef6135'
+// HD account 0
+const PRIVATE_KEY = '0x01ece2ecc7a68dd7640be9983ec9d5e161c042e7431f0efc7cf6d125bba275ab'
 
 web3.eth.accounts
   .signTransaction(tx, PRIVATE_KEY)
