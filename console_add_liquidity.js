@@ -3,15 +3,18 @@
 const Web3 = require('web3')
 const fs = require('fs')
 
-const Eth = require('ethjs')
-const Abi = require('ethjs-abi')
+// const Eth = require('ethjs')
+// const Abi = require('ethjs-abi')
+
+
+// You can get the contract pair from "console_create_pair.js" and "console_get_pair_data.js"
+const router_address = '0x77cC2004C2da2FAD7Df19E421803460C7dF9d403'
 
 const tokenA = '0xAb2493C5950c1FC1034ccDF5A98c9A0f80E926a4' //AUD
 const tokenB = '0x97053Ec1caa6518e107C3dA4E8c37f0c61A0D22b' //YEN
 const to = '0xC29082511fEBc2185986d341ee8be3c9B2c66b66'
 
-// You can get the contract pair from "console_create_pair.js" and "console_get_pair_data.js"
-const router_address = '0x97053Ec1caa6518e107C3dA4E8c37f0c61A0D22b'
+
 
 //Should have AUD and YEN
 const meta_mask_linux_account_2 = '0xC29082511fEBc2185986d341ee8be3c9B2c66b66' //Firefox
@@ -26,7 +29,7 @@ const web3 = new Web3(
   new Web3.providers.HttpProvider('http://localhost:8545')
 )
 
-web3.eth.handleRevert = true
+//web3.eth.handleRevert = true
 
 const contract = new web3.eth.Contract(HandleRouter.abi, router_address)
 
@@ -59,16 +62,16 @@ const doTx = async () => {
   //var result = await web3.eth.sendSignedTransaction(signed.rawTransaction)
   //console.log(result)
 
-  web3.eth.handleRevert = true
+  //web3.eth.handleRevert = true
 
-  try {
+  // try {
     var result = await web3.eth.sendSignedTransaction(signed.rawTransaction)
     console.log(result)
-  } catch (err) {
-    console.log('error')
-    console.log(err.receipt.status)
-    console.log(err)
-  }
+  // } catch (err) {
+  //   console.log('error')
+  //   console.log(err.receipt.status)
+  //   console.log(err)
+  // }
 }
 
 //doTx()
