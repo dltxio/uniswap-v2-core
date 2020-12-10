@@ -17,31 +17,26 @@
 //     emit PairCreated(token0, token1, pair, allPairs.length);
 // }
 
-require("dotenv").config();
+require('dotenv').config()
 const Web3 = require('web3')
 const fs = require('fs')
 
-const tokenA = process.env.TokenA 
-const tokenB = process.env.TokenB 
+const tokenA = process.env.TokenA
+const tokenB = process.env.TokenB
 const to = '0x87227F5771eF47845118ecdb276D75f911aAaBD7'
 
-const factory_address = process.env.FACTORY_ADDRESS 
+const factory_address = process.env.FACTORY_ADDRESS
 
 const meta_mask_linux_account_2 = '0xC29082511fEBc2185986d341ee8be3c9B2c66b66' //Firefox
 
 const rawdata = fs.readFileSync('./build/contracts/HandleFactory.json')
 const HandelFactory = JSON.parse(rawdata)
 
-const web3 = new Web3(
-  new Web3.providers.HttpProvider('http://localhost:8545')
-)
+const web3 = new Web3(new Web3.providers.HttpProvider('http://localhost:8545'))
 
 const contract = new web3.eth.Contract(HandelFactory.abi, factory_address)
 
-const _data = contract.methods
-  .createPair(tokenA, tokenB)
-  .encodeABI()
-
+const _data = contract.methods.createPair(tokenA, tokenB).encodeABI()
 
 const tx = {
   gas: 5000000,
@@ -54,13 +49,10 @@ const tx = {
 // HD account 0
 const PRIVATE_KEY = '0x01ece2ecc7a68dd7640be9983ec9d5e161c042e7431f0efc7cf6d125bba275ab'
 
-web3.eth.accounts
-  .signTransaction(tx, PRIVATE_KEY)
-  .then(signed => {
-    console.log(signed.rawTransaction)
-    web3.eth.sendSignedTransaction(signed.rawTransaction).on('receipt', console.log)
+web3.eth.accounts.signTransaction(tx, PRIVATE_KEY).then(signed => {
+  console.log(signed.rawTransaction)
+  web3.eth.sendSignedTransaction(signed.rawTransaction).on('receipt', console.log)
 })
-
 
 // completed 0x55af992ed54749df5e629b4d88f814e9437556ae7590243616c7bbd737c976af
 // https://ropsten.etherscan.io/tx/0x55af992ed54749df5e629b4d88f814e9437556ae7590243616c7bbd737c976af
