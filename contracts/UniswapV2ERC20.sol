@@ -22,19 +22,19 @@ contract UniswapV2ERC20 is IUniswapV2ERC20 {
     event Transfer(address indexed from, address indexed to, uint value);
 
     constructor() public {
-        uint chainId;
-        assembly {
-            chainId := chainid
-        }
-        DOMAIN_SEPARATOR = keccak256(
-            abi.encode(
-                keccak256('EIP712Domain(string name,string version,uint256 chainId,address verifyingContract)'),
-                keccak256(bytes(name)),
-                keccak256(bytes('1')),
-                chainId,
-                address(this)
-            )
-        );
+        // uint chainId;
+        // assembly {
+        //     chainId := chainid
+        // }
+        // DOMAIN_SEPARATOR = keccak256(
+        //     abi.encode(
+        //         keccak256('EIP712Domain(string name,string version,uint256 chainId,address verifyingContract)'),
+        //         keccak256(bytes(name)),
+        //         keccak256(bytes('1')),
+        //         chainId,
+        //         address(this)
+        //     )
+        // );
     }
 
     function _mint(address to, uint value) internal {

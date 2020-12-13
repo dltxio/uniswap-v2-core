@@ -14,9 +14,24 @@ module.exports = {
       provider: () => {
         return new HDWalletProvider({
           mnemonic: {
-            phrase: process.env.MNEMONIC
+            phrase: process.env.ROPSTEN_MNEMONIC
           },
-          providerOrUrl: process.env.INFURA_URL
+          providerOrUrl: process.env.ROPSTEN_URL
+        })
+      },
+      network_id: "3",
+      gas: 4500000,
+      confirmations: 2,
+      timeoutBlocks: 200,
+      skipDryRun: true,
+    },
+    goerli: {
+      provider: () => {
+        return new HDWalletProvider({
+          mnemonic: {
+            phrase: process.env.ROPSTEN_MNEMONIC
+          },
+          providerOrUrl: process.env.ROPSTEN_URL
         })
       },
       network_id: "3",
