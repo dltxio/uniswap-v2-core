@@ -11,9 +11,16 @@ The built contract artifacts can be browsed via [unpkg.com](https://unpkg.com/br
 
 | Contract      | Network | Contract Address                             | Owner |
 | ------------- | ------- | -------------------------------------------- | ----- |
-| HandleFactory | Ropsten | `0x9d839c337df3394e6D7982601762D43B97c5fBB7` |       |
+| HandleFactory | Ropsten | `0xE320FE924bA03d14Bd9C49Ff61abA08465b3B099` |       |
 | UniswapV2Pair | Ropsten | Created by the Factory                       |       |
 | HandleRouter  | Ropsten | `0xE96C7987C51D187A217eCC91E9Dab658f2A8BDE2` |       |
+
+## Flattern the contracts
+
+```bash
+cd /path/to/project/files/
+npx truffle-flattener contracts/HandleFactory.sol > build/contracts/HandleFactory.flattened.sol
+```
 
 # Local Development
 
