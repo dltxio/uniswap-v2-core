@@ -1,11 +1,11 @@
-const HandleFactory = artifacts.require('HandleFactory')
+// const HandleFactory = artifacts.require('HandleFactory')
 
-module.exports = async (deployer, network, accounts) => {
+// module.exports = async (deployer, network, accounts) => {
 
-  if (network === "development") {
-    const factory = await HandleFactory.deployed();
-    const pair = await factory.createPair('0xbEE597Ad7674a9E92bc284515d35Fd20E2b81371', '0x7FB799BeCD588f2f6395DCc17f54C1fF350D2464');
+//   if (network === "development") {
+//     const factory = await HandleFactory.deployed();
+//     const pair = await factory.createPair('0x41cD10651f85BA4eF9463347e6E22Ba78CCe1E4A', '0xa04FA8070EF00BF87391D02D9f1C023654530D6A');
 
-    console.log(pair);
-  }
-}
+//     console.log(pair);
+//   }
+// }
