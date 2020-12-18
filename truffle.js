@@ -19,22 +19,22 @@ module.exports = {
           providerOrUrl: process.env.ROPSTEN_URL
         })
       },
-      network_id: "3",
+      network_id: 3,
       gas: 4500000,
       confirmations: 2,
       timeoutBlocks: 200,
       skipDryRun: true,
     },
-    goerli: {
+    kovan: {
       provider: () => {
         return new HDWalletProvider({
           mnemonic: {
-            phrase: process.env.ROPSTEN_MNEMONIC
+            phrase: process.env.KOVAN_MNEMONIC
           },
-          providerOrUrl: process.env.ROPSTEN_URL
+          providerOrUrl: process.env.KOVAN_URL
         })
       },
-      network_id: "3",
+      network_id: 42,
       gas: 4500000,
       confirmations: 2,
       timeoutBlocks: 200,
@@ -50,7 +50,7 @@ module.exports = {
           addressIndex: 1
         })
       },
-      network_id: "1",
+      network_id: 1,
       //gas: 10000000,
       gas: 4600000,
       gasPrice: 20000000000,

@@ -180,3 +180,73 @@ lucascullen@SubZero:~/GitHub/dltx/uniswap-v2-core$ nodejs console_create_pair.js
   transactionHash: '0x8c7e8cd4a6957ee2a7e24bbfc5e551cae0306f3b7ba0f7d67f1ebf546eb0783e',
   transactionIndex: 7
 }
+
+Starting migrations...
+======================
+> Network name:    'kovan'
+> Network id:      42
+> Block gas limit: 0xbebc20
+
+
+1_deploy.js
+===========
+
+   Deploying 'UniswapV2ERC20'
+   --------------------------
+   > transaction hash:    0x4b07cd5149658953e2e02fe706a0a02036028a9ba4c3db96eb559971dfa8d100
+   > Blocks: 1            Seconds: 5
+   > contract address:    0x8d883b92A89E50f328cd837D4af43f8023602cFf
+   > block number:        22645971
+   > block timestamp:     1608267512
+   > account:             0xC29082511fEBc2185986d341ee8be3c9B2c66b66
+   > balance:             6.01557078
+   > gas used:            900961
+   > gas price:           20 gwei
+   > value sent:          0 ETH
+   > total cost:          0.01801922 ETH
+
+   Pausing for 2 confirmations...
+   ------------------------------
+   > confirmation number: 1 (block: 22645972)
+   > confirmation number: 2 (block: 22645973)
+
+   Deploying 'UniswapV2Pair'
+   -------------------------
+   > transaction hash:    0x1990a35a3815cabd142b75527d851c2ac9c7a20fd284caa829a2d30b664cbfc9
+   > Blocks: 2            Seconds: 9
+   > contract address:    0xDb647Cf333ca91BDEbc10EC5B6Ba902092BaeE58
+   > block number:        22645976
+   > block timestamp:     1608267540
+   > account:             0xC29082511fEBc2185986d341ee8be3c9B2c66b66
+   > balance:             5.94927474
+   > gas used:            3314802
+   > gas price:           20 gwei
+   > value sent:          0 ETH
+   > total cost:          0.06629604 ETH
+
+   Pausing for 2 confirmations...
+   ------------------------------
+   > confirmation number: 1 (block: 22645978)
+   > confirmation number: 2 (block: 22645979)
+
+   Deploying 'HandleFactory'
+   -------------------------
+   > transaction hash:    0xf5d3b54a1e99533289fabf7fa68b98849161be0fc666dcc4a05d6cb0894e1fec
+   > Blocks: 2            Seconds: 9
+   > contract address:    0x6783f05c6e75a5630f13eaB9C3E445127411Bdb7
+   > block number:        22645982
+   > block timestamp:     1608267568
+   > account:             0xC29082511fEBc2185986d341ee8be3c9B2c66b66
+   > balance:             5.86805782
+   > gas used:            4060846
+   > gas price:           20 gwei
+   > value sent:          0 ETH
+   > total cost:          0.08121692 ETH
+
+   Pausing for 2 confirmations...
+   ------------------------------
+   > confirmation number: 1 (block: 22645984)
+   > confirmation number: 2 (block: 22645985)
+   > Saving artifacts
+   -------------------------------------
+   > Total cost:          0.16553218 ETH
