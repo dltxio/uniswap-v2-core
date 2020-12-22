@@ -11,7 +11,7 @@ The built contract artifacts can be browsed via [unpkg.com](https://unpkg.com/br
 
 | Contract      | Network | Contract Address                             | Owner |
 | ------------- | ------- | -------------------------------------------- | ----- |
-| HandleFactory | Ropsten | `0xE320FE924bA03d14Bd9C49Ff61abA08465b3B099` |       |
+| HandleFactory | Kovan | `0x8f241c76ED026f6A64DC8FEf1D12eDdbc0F04Eb9` |       |
 | UniswapV2Pair | Ropsten | Created by the Factory                       |       |
 | HandleRouter  | Ropsten | `0xE96C7987C51D187A217eCC91E9Dab658f2A8BDE2` |       |
 
